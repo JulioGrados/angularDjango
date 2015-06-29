@@ -1,0 +1,108 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>   
+	<html lang="es" ng-app="noticiero">
+	<head>
+		<meta charset="UTF-8">
+		<title>Curso Angular</title>
+		<link rel="stylesheet" href='{% static "css/main.css" %}'>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+		<script src='{% static "js/app.js" %}'></script>
+	</head>
+	<!-- Angular -->
+	{% verbatim %} 
+	<body>
+		<section class="menu">
+			<div class="container menu-container">
+				<div class="menu-logo">
+					<span>DevToday</span>
+				</div>
+			</div>
+		</section>
+			
+		<section>
+			<div class="container">
+				<div class="row">
+					<ul class="tab-ul text-center">
+						<li id="news" class="tab-li activate">News</li>
+						<li id="sports" class="tab-li">Sports</li>
+						<li id="actualidad" class="tab-li">Actualidad</li>
+						<li id="mundo" class="tab-li">Mundo</li>
+					</ul>	
+				</div>
+			</div>
+		</section>
+		
+		<section ng-controller="NoticieroController as notCtrl" class="containt noticias-today">
+			<article class="container">
+				<div class="header-noticia">
+					<div class="text-center">
+						<h1>Titulo: {{notCtrl.noticia.titulo}}</h1>
+					</div>
+					<div>
+						<div class="autor-fecha-noticia">
+							<div class="autor-datos-noticia">
+								<img class="autor-img" src="https://pbs.twimg.com/profile_images/550728010043629568/Z1hoIo_V.jpeg" alt="Julio Grados" alt="">
+								<span class="autor-name">Autor: {{notCtrl.noticia.autor}}</span>
+								<span class="noticia-fecha">Fecha: </span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="header-noticia">
+					
+					<div class="text-center">
+						<img src="public/img/descarga.jpg" alt="">
+					</div>
+					<div class="noticia-descripcion">
+						<span>
+							Descripción: {{notCtrl.noticia.descripcion}}
+						</span>
+					</div>
+				</div>	
+			</article>
+			<article id="region-preguntas">
+				<div class="header-noticia">
+					<div class="question">
+						<div class="question-name">
+							<div class="question-nombre">
+								<span>Preguntas?</span>
+							</div>
+							<div class="question-text-descripcion">
+								<textarea name="" id="" cols="30" rows="10"></textarea>
+							</div>
+						</div>
+						<div class="question-name-preguntar">
+							<button class="preguntar">Dejar pregunta</button>
+						</div>
+						
+					</div>
+					
+					<div class="question">
+						<div class="question-name" id="agregar-preg">
+							<div class="pregunta-item">
+								<div>
+									<div class="item-dato">
+										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo pariatur, id aliquam qui repudiandae, expedita sunt deserunt aperiam voluptate laudantium veniam ea accusamus. Ex eveniet culpa cumque porro nam vero.</span>
+									</div>
+									<div class="item-dato-posicion">
+										<div class="item-bottom">
+											<span>editar ></span>
+											<span>eliminar ></span>
+										</div>
+									</div>
+								</div>
+								<div class="actualizar-pregunta">
+									<input type="text">
+									<button>Guardar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+	</body>
+	{% endverbatim %}
+	<!-- End-Angular -->
+</html>

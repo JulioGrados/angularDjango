@@ -1,0 +1,237 @@
+body {
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+.menu {
+	background: #141414;
+	height: 55px;
+  color: white;
+}
+
+.container {
+	margin: 0 auto;
+  width: 95%;
+}
+
+.menu-container {
+	padding: 15px 0;
+  zoom: 1;
+  display: table;
+}
+
+.menu-logo {
+	float: left;
+  font-weight: 700;
+}
+
+.menu-logo img {
+	height: 25px;
+  vertical-align: middle;
+  width: auto;
+}
+
+.menu-logo span {
+	font-size: 18px;
+  margin-left: 0.3em;
+  vertical-align: middle;
+  color: white;
+}
+
+.menu-default {
+	border-top: 1px solid;
+}
+
+.menu-datos {
+  height: 50px;
+}
+
+.row {
+  display: table;
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.tab-ul {
+  height: 50px;
+  padding: 0px;
+}
+
+.tab-li {
+  display: inline-block;
+  padding: 15px 7.5px;
+  line-height: 20px;
+  cursor: pointer;
+  color: black;
+  margin: 0px 12px 0px 12px;
+}
+
+.tab-li:hover {
+  border-bottom: 2px solid #2d82ea;
+  color: #2d82ea;
+  font-weight: bold;
+}
+
+.activate {
+  border-bottom: 2px solid #2d82ea;
+  color: #2d82ea;
+  font-weight: bold;
+}
+
+.noticia-item {
+  text-align: center;
+  padding: 0px;
+  height: auto;
+}
+
+.noticia-principal {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  padding: 40px 0px 40px 0px;
+}
+
+.imagen-noticia {
+  width: 50%
+}
+
+.imagen-noticia img {
+  width: 225px;
+  height: 225px;
+
+}
+
+.resumen-noticia {
+  width: 50%
+}
+
+.btn-ver-mas {
+  float: right;
+  cursor: pointer;
+}
+
+.noticias-items {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.noticia-sgte {
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+  padding: 40px 40px 40px 40px; 
+}
+
+.header-noticia {
+  margin: 0 auto;
+  padding: 20px 10px 20px 10px;
+}
+
+.autor-fecha-noticia {
+  display: flex;
+  border: 1px solid;
+  padding: 15px;
+}
+
+.autor-datos-noticia {
+  float: left;
+}
+
+.autor-datos-noticia span {
+  vertical-align: middle;
+}
+
+.autor-img {
+  border-radius: 50%;
+  height: 30px;
+  vertical-align: middle;
+  width: auto;
+}
+
+.autor-name {
+  font-weight: bold;
+  padding: 0px 10px 0px 10px;
+}
+
+.noticia-fecha {
+  font-style: italic;
+  padding: 0px 10px 0px 10px; 
+}
+
+.noticia-descripcion {
+  padding: 20px;
+}
+
+.question {
+  padding: 10px 100px 20px 100px;
+}
+
+.question-name {
+  padding: 10px;
+}
+
+.question-name-preguntar {
+  padding: 10px;
+  height: 40px; 
+}
+
+.question-nombre {
+  padding: 10px 0px 10px 0px;
+}
+
+.question-text-user {
+  padding: 10px 0px 10px 0px; 
+}
+
+.question-text-user input {
+  width: 100%;
+  height: 20px;
+}
+
+.question-text-descripcion {
+  padding: 10px 0px 10px 0px;  
+}
+
+.question-text-descripcion textarea{
+  width: 100%;
+  height: 60px;
+}
+
+.preguntar {
+  float: right;
+  width: 120px;
+  height: 40px;
+  background-color: rgb(95, 168, 95);
+  border: none;
+  color: #fff;
+  padding: 0.25em 1em;
+  cursor: pointer;
+}
+
+.pregunta-item {
+  border: 1px solid;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.item-dato {
+  margin: 4px;
+}
+
+.item-dato-posicion {
+  margin: 4px;
+  height: 20px;
+}
+
+.item-bottom {
+  float: right;
+}
+
+.item-bottom span {
+  cursor: pointer;
+}
