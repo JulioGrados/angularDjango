@@ -11,7 +11,7 @@
 	</head>
 	<!-- Angular -->
 	{% verbatim %} 
-	<body>
+	<body  ng-controller="NoticieroController as notCtrl">
 		<section class="menu">
 			<div class="container menu-container">
 				<div class="menu-logo">
@@ -20,24 +20,24 @@
 			</div>
 		</section>
 			
-		<section>
+		<section ng-init="tab = 1">
 			<div class="container">
 				<div class="row">
 					<ul class="tab-ul text-center">
-						<li id="news" class="tab-li activate">News</li>
-						<li id="sports" class="tab-li">Sports</li>
-						<li id="actualidad" class="tab-li">Actualidad</li>
-						<li id="mundo" class="tab-li">Mundo</li>
+						<li id="news" ng-click="notCtrl.selectTab(1)" ng-class="{ activate: notCtrl.tab===1}" class="tab-li">News</li>
+						<li id="sports" ng-class="{ activate: notCtrl.tab===2}" ng-click="notCtrl.selectTab(2)" class="tab-li">Sports</li>
+						<li id="actualidad" ng-click="notCtrl.selectTab(3)" ng-class="{ activate: notCtrl.tab===3}" class="tab-li">Actualidad</li>
+						<li id="mundo" ng-click="notCtrl.selectTab(4)" ng-class="{ activate: notCtrl.tab===4}" class="tab-li">Mundo</li>
 					</ul>	
 				</div>
 			</div>
 		</section>
 		
-		<section ng-controller="NoticieroController as notCtrl" class="containt noticias-today">
+		<section class="containt noticias-today">
 			<article class="container">
 				<div class="header-noticia">
 					<div class="text-center">
-						<h1>Titulo: {{notCtrl.noticia.titulo}}</h1>
+						<h1>Titulo: {{notCtrl.noticia.titulo | uppercase}}</h1>
 					</div>
 					<div>
 						<div class="autor-fecha-noticia">
@@ -52,7 +52,7 @@
 				<div class="header-noticia">
 					
 					<div class="text-center">
-						<img src="public/img/descarga.jpg" alt="">
+						<img src='static/img/{{notCtrl.noticia.img}}' alt="">
 					</div>
 					<div class="noticia-descripcion">
 						<span>
