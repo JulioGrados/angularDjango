@@ -1,27 +1,25 @@
-<article class="noticias-today container">
-	<div class="header-noticia">
-		<div class="text-center">
-			<h1>Titulo: {{notCtrl.noticia.titulo | uppercase}}</h1>
-		</div>
-		<div>
-			<div class="autor-fecha-noticia">
-				<div class="autor-datos-noticia">
-					<img class="autor-img" src="https://pbs.twimg.com/profile_images/550728010043629568/Z1hoIo_V.jpeg" alt="Julio Grados" alt="">
-					<span class="autor-name">Autor: {{notCtrl.noticia.autor}}</span>
-					<span class="noticia-fecha">Fecha: {{notCtrl.noticia.date | date:'MM/dd/yyyy - h:mma'}}</span>
-				</div>
+<div class="header-noticia">
+	<div class="text-center">
+		<h1>Titulo: {{notCtrl.noticia.titulo | uppercase}}</h1>
+	</div>
+	<div>
+		<div class="autor-fecha-noticia">
+			<div class="autor-datos-noticia">
+				<img class="autor-img" src="https://pbs.twimg.com/profile_images/550728010043629568/Z1hoIo_V.jpeg" alt="Julio Grados" alt="">
+				<span class="autor-name">Autor: {{notCtrl.noticia.autor}}</span>
+				<span class="noticia-fecha">Fecha: {{notCtrl.noticia.date | date:'MM/dd/yyyy - h:mma'}}</span>
 			</div>
 		</div>
 	</div>
-	<div class="header-noticia">
-		
-		<div class="text-center">
-			<img src='static/img/{{notCtrl.noticia.img}}' alt="">
-		</div>
-		<div class="noticia-descripcion">
-			<span>
-				Descripción: {{notCtrl.noticia.descripcion}}
-			</span>
-		</div>
+</div>
+<div class="header-noticia">
+	
+	<div class="text-center">
+		<img src='static/img/{{notCtrl.noticia.img}}' alt="">
 	</div>
-</article>
+	<div class="noticia-descripcion">
+		<span>
+			Descripción: {{notCtrl.noticia.descripcion}}
+		</span>
+	</div>
+</div>

@@ -31,55 +31,12 @@
 					</ul>	
 				</div>
 			</div>
-			<div ng-include="'static/js/partials/noticia-data.html'">
-		
-			</div>	
+			<article noticia-data class="noticias-today container"></article>
 		</section>
 		<!-- End Noticias -->
 
 		<!-- Comentarios -->
-		<section class="containt noticias-today" ng-controller="CommentsController as cmtsCtrl">
-
-			<form ng-submit="cmtsCtrl.addComment()" role="form" id="region-preguntas">
-				<div class="header-noticia">
-					<div class="question">
-						<div class="question-name">
-							<div class="question-nombre">
-								<span>Preguntas?</span>
-							</div>
-							<div class="question-text-descripcion">
-								<textarea ng-model="cmtsCtrl.comment.body" name="" id="" cols="30" rows="10" required></textarea>
-							</div>
-						</div>
-						<div class="question-name-preguntar">
-							<button type="submit" class="preguntar">Dejar pregunta</button>
-						</div>
-					</div>
-				</div>
-			</form>
-
-			<div ng-repeat = "comentario in cmtsCtrl.comments" class="question">
-				<div class="question-name" id="agregar-preg">
-					<div class="pregunta-item">
-						<div>
-							<div class="item-dato">
-								<span>{{comentario.body}}</span>
-							</div>
-							<div class="item-dato-posicion">
-								<div class="item-bottom">
-									<span ng-click="cmtsCtrl.editarComentario(comentario)">editar ></span>
-									<span>eliminar ></span>
-								</div>
-							</div>
-						</div>
-						<div ng-show="comentario.edit" class="actualizar-pregunta">
-							<input ng-model="comentario.body" type="text">
-							<button ng-click="cmtsCtrl.guardarComentario(comentario)">Guardar</button>
-							<button ng-click="cmtsCtrl.cancelarComentario(comentario)">Cancelar</button>
-						</div>
-					</div>
-				</div>
-			</div>
+		<section noticia-comments>
 		</section>
 		<!-- End Comentarios -->
 	</body>

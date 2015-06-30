@@ -24,31 +24,46 @@
 	    };
 	});
 
-	app.controller('CommentsController', function(){
-		this.comments = [];
-		this.comment= {
-			edit: false,
+	app.directive('noticiaData', function () {
+		return {
+			restrict: 'A',
+			templateUrl: 'static/js/partials/noticia-data.html'
 		};
+	});
 
-		this.addComment = function () {
-			this.comments.push(this.comment);
-			this.comment = {};
-		};
+	app.directive('noticiaComments', function () {
+		return {
+			restrict: 'A',
+			templateUrl: 'static/js/partials/noticia-coments.html',
+			controller: function () {
+				this.comments = [];
+				this.comment= {
+					edit: false,
+				};
 
-		this.editarComentario = function (comentario) {
-			comentario.edit = true;
-			comentario.bodyReplace = comentario.body;
-		};
+				this.addComment = function () {
+					this.comments.push(this.comment);
+					this.comment = {};
+				};
 
-		this.guardarComentario = function (comentario) {
-			comentario.edit = false;
-			comentario.bodyReplace = "";
-		};
+				this.editarComentario = function (comentario) {
+					comentario.edit = true;
+					comentario.bodyReplace = comentario.body;
+				};
 
-		this.cancelarComentario = function (comentario) {
-			comentario.edit = false;
-			comentario.body = comentario.bodyReplace;
-			comentario.bodyReplace = "";
+				this.guardarComentario = function (comentario) {
+					comentario.edit = false;
+					comentario.bodyReplace = "";
+				};
+
+				this.cancelarComentario = function (comentario) {
+					comentario.edit = false;
+					comentario.body = comentario.bodyReplace;
+					comentario.bodyReplace = "";
+				};
+			},
+
+			controllerAs: 'cmtsCtrl'
 		};
 	});
 
