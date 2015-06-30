@@ -98,8 +98,9 @@
 							</div>
 						</div>
 						<div ng-show="comentario.edit" class="actualizar-pregunta">
-							<input ng-model="comentario.bodyReplace" type="text">
+							<input ng-model="comentario.body" type="text">
 							<button ng-click="cmtsCtrl.guardarComentario(comentario)">Guardar</button>
+							<button ng-click="cmtsCtrl.cancelarComentario(comentario)">Cancelar</button>
 						</div>
 					</div>
 				</div>

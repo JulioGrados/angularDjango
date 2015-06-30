@@ -36,13 +36,19 @@
 
 		this.editarComentario = function (comentario) {
 			comentario.edit = true;
+			comentario.bodyReplace = comentario.body;
 		};
 
 		this.guardarComentario = function (comentario) {
 			comentario.edit = false;
+			comentario.bodyReplace = "";
+		};
+
+		this.cancelarComentario = function (comentario) {
+			comentario.edit = false;
 			comentario.body = comentario.bodyReplace;
 			comentario.bodyReplace = "";
-		}
+		};
 	});
 
 })();
