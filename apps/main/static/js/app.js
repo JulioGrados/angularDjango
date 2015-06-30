@@ -31,6 +31,11 @@
 			this.comments.push(this.comment);
 			this.comment = {};
 		};
+
+		this.editarComentario = function (comentario) {
+			comentario.body = this.comment.body;
+			this.comment = {};
+		};
 	});
 
 })();
