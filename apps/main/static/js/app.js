@@ -25,7 +25,9 @@
 
 	app.controller('CommentsController', function(){
 		this.comments = [];
-		this.comment= {};
+		this.comment= {
+			edit: false,
+		};
 
 		this.addComment = function () {
 			this.comments.push(this.comment);
@@ -33,9 +35,14 @@
 		};
 
 		this.editarComentario = function (comentario) {
-			comentario.body = this.comment.body;
-			this.comment = {};
+			comentario.edit = true;
 		};
+
+		this.guardarComentario = function (comentario) {
+			comentario.edit = false;
+			comentario.body = comentario.bodyReplace;
+			comentario.bodyReplace = "";
+		}
 	});
 
 })();
