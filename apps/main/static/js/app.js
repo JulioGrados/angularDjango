@@ -23,4 +23,14 @@
 	    };
 	});
 
+	app.controller('CommentsController', function(){
+		this.comments = [];
+		this.comment= {};
+
+		this.addComment = function () {
+			this.comments.push(this.comment);
+			this.comment = {};
+		};
+	});
+
 })();

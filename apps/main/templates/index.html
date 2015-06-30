@@ -11,7 +11,7 @@
 	</head>
 	<!-- Angular -->
 	{% verbatim %} 
-	<body  ng-controller="NoticieroController as notCtrl">
+	<body>
 		<section class="menu">
 			<div class="container menu-container">
 				<div class="menu-logo">
@@ -19,8 +19,8 @@
 				</div>
 			</div>
 		</section>
-			
-		<section ng-init="tab = 1">
+		<!-- Noticias -->
+		<section ng-controller="NoticieroController as notCtrl">
 			<div class="container">
 				<div class="row">
 					<ul class="tab-ul text-center">
@@ -31,10 +31,8 @@
 					</ul>	
 				</div>
 			</div>
-		</section>
-		
-		<section class="containt noticias-today">
-			<article class="container">
+
+			<article class="noticias-today container">
 				<div class="header-noticia">
 					<div class="text-center">
 						<h1>Titulo: {{notCtrl.noticia.titulo | uppercase}}</h1>
@@ -61,7 +59,13 @@
 					</div>
 				</div>	
 			</article>
-			<article id="region-preguntas">
+		</section>
+		<!-- End Noticias -->
+
+		<!-- Comentarios -->
+		<section class="containt noticias-today" ng-controller="CommentsController as cmtsCtrl">
+
+			<form ng-submit="cmtsCtrl.addComment()" role="form" id="region-preguntas">
 				<div class="header-noticia">
 					<div class="question">
 						<div class="question-name">
@@ -69,39 +73,39 @@
 								<span>Preguntas?</span>
 							</div>
 							<div class="question-text-descripcion">
-								<textarea name="" id="" cols="30" rows="10"></textarea>
+								<textarea ng-model="cmtsCtrl.comment.body" name="" id="" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 						<div class="question-name-preguntar">
-							<button class="preguntar">Dejar pregunta</button>
-						</div>
-						
-					</div>
-					
-					<div class="question">
-						<div class="question-name" id="agregar-preg">
-							<div class="pregunta-item">
-								<div>
-									<div class="item-dato">
-										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo pariatur, id aliquam qui repudiandae, expedita sunt deserunt aperiam voluptate laudantium veniam ea accusamus. Ex eveniet culpa cumque porro nam vero.</span>
-									</div>
-									<div class="item-dato-posicion">
-										<div class="item-bottom">
-											<span>editar ></span>
-											<span>eliminar ></span>
-										</div>
-									</div>
-								</div>
-								<div class="actualizar-pregunta">
-									<input type="text">
-									<button>Guardar</button>
-								</div>
-							</div>
+							<button type="submit" class="preguntar">Dejar pregunta</button>
 						</div>
 					</div>
 				</div>
-			</article>
+			</form>
+
+			<div ng-repeat = "comentario in cmtsCtrl.comments" class="question">
+				<div class="question-name" id="agregar-preg">
+					<div class="pregunta-item">
+						<div>
+							<div class="item-dato">
+								<span>{{comentario.body}}</span>
+							</div>
+							<div class="item-dato-posicion">
+								<div class="item-bottom">
+									<span>editar ></span>
+									<span>eliminar ></span>
+								</div>
+							</div>
+						</div>
+						<div class="actualizar-pregunta">
+							<input type="text">
+							<button>Guardar</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
+		<!-- End Comentarios -->
 	</body>
 	{% endverbatim %}
 	<!-- End-Angular -->
