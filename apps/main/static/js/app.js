@@ -14,7 +14,8 @@
 			'Neque totam voluptates expedita dolores.' +
 			'Aperiam, aliquid! Eveniet fuga nam neque praesentium magnam,' +
 			'accusantium nulla, ducimus,' + 
-			'corrupti veritatis quibusdam vel quas delectus.'
+			'corrupti veritatis quibusdam vel quas delectus.',
+			date: Date.now('2015-04-09T03:58:48.696836Z'),
 		};
 
 		this.selectTab = function (tab) {

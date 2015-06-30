@@ -42,7 +42,7 @@
 							<div class="autor-datos-noticia">
 								<img class="autor-img" src="https://pbs.twimg.com/profile_images/550728010043629568/Z1hoIo_V.jpeg" alt="Julio Grados" alt="">
 								<span class="autor-name">Autor: {{notCtrl.noticia.autor}}</span>
-								<span class="noticia-fecha">Fecha: </span>
+								<span class="noticia-fecha">Fecha: {{notCtrl.noticia.date | date:'MM/dd/yyyy - h:mma'}}</span>
 							</div>
 						</div>
 					</div>
