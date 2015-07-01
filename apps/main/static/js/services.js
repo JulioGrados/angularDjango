@@ -1,8 +1,11 @@
 (function (){
 	angular.module('noticiero.services', [])
 
-		.factory('noticieroService', ['$http', '$q', function($http, $q){
+		.factory('noticieroService', 
+			['$http', '$q', '$window', function($http, $q, $window){
 			
+			var localStorage = $window.localStorage;
+
 			function all () {
 				var deferred = $q.defer();
 
@@ -39,10 +42,30 @@
 				return deferred.promise;
 			}
 
+			function saveComment (noticia, comment) {
+				var comments = getComments(noticia);
+				comments.push(comment);
+				localStorage.setItem(noticia, JSON.stringify(comments));
+			}
+
+			function getComments (noticia) {
+				var comments = localStorage.getItem(noticia);
+
+				if ( !comments ) {
+					comments = [];
+				} else {
+					comments = JSON.parse(comments);
+				}
+
+				return comments;
+			}
+
 			return {
 				all: all,
 				byId: byId,
-				byType: byType
+				byType: byType,
+				saveComment: saveComment,
+				getComments: getComments
 			}
 		}])
 })();

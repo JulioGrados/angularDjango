@@ -1,4 +1,4 @@
-<form ng-submit="cmtsCtrl.addComment()" role="form" id="region-preguntas">
+<form ng-submit="addComment()" role="form" id="region-preguntas">
 	<div class="header-noticia">
 		<div class="question">
 			<div class="question-name">
@@ -6,7 +6,7 @@
 					<span>Preguntas?</span>
 				</div>
 				<div class="question-text-descripcion">
-					<textarea ng-model="cmtsCtrl.comment.body" name="" id="" cols="30" rows="10" required></textarea>
+					<textarea ng-model="comment.body" placeholder="Please tell us what you think about {{id}}" id="" cols="30" rows="10" required></textarea>
 				</div>
 			</div>
 			<div class="question-name-preguntar">
@@ -16,7 +16,7 @@
 	</div>
 </form>
 
-<div ng-repeat = "comentario in cmtsCtrl.comments" class="question">
+<div ng-repeat = "comentario in comments" class="question">
 	<div class="question-name" id="agregar-preg">
 		<div class="pregunta-item">
 			<div>
@@ -25,15 +25,15 @@
 				</div>
 				<div class="item-dato-posicion">
 					<div class="item-bottom">
-						<span ng-click="cmtsCtrl.editarComentario(comentario)">editar ></span>
+						<span ng-click="editarComentario(comentario)">editar ></span>
 						<span>eliminar ></span>
 					</div>
 				</div>
 			</div>
 			<div ng-show="comentario.edit" class="actualizar-pregunta">
 				<input ng-model="comentario.body" type="text">
-				<button ng-click="cmtsCtrl.guardarComentario(comentario)">Guardar</button>
-				<button ng-click="cmtsCtrl.cancelarComentario(comentario)">Cancelar</button>
+				<button ng-click="guardarComentario(comentario)">Guardar</button>
+				<button ng-click="cancelarComentario(comentario)">Cancelar</button>
 			</div>
 		</div>
 	</div>
