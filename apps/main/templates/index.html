@@ -19,13 +19,31 @@
 			</div>
 		</section>
 		{% verbatim %} 
-		<section ng-view>
+		<div class="row" ng-controller="TabsController as tabs">
+			<ul class="tab-ul text-center">
+				<a href="/#/">
+					<li id="news" ng-click="tabs.selectTab(1)" ng-class="{ activate: tabs.tab===1}" class="tab-li">News</li>
+				</a>
+				<a href="/#/">
+					<li id="sports" ng-class="{ activate: tabs.tab===2}" ng-click="tabs.selectTab(2)" class="tab-li">Sports</li>
+				</a>
+				<a href="/#/">
+					<li id="actualidad" ng-click="tabs.selectTab(3)" ng-class="{ activate: tabs.tab===3}" class="tab-li">Actualidad</li>
+				</a>
+				<a href="/#/">
+					<li id="mundo" ng-click="tabs.selectTab(4)" ng-class="{ activate: tabs.tab===4}" class="tab-li">Mundo</li>
+				</a>
+			</ul>	
+			<section ng-view>
 
-		</section>
+			</section>
+		</div>
+		
 		{% endverbatim %}
 		<script src='{% static "js/app.js" %}'></script>
 		<script src='{% static "js/controllers.js" %}'></script>
 		<script src='{% static "js/directives.js" %}'></script>
+		<script src='{% static "js/services.js" %}'></script>
 	</body>
 	<!-- End-Angular -->
 </html>

@@ -1,7 +1,15 @@
+<!--<div class="row">
+	<ul class="tab-ul text-center">
+		<li id="news" ng-click="selectTab(1)" ng-class="{ activate: tab===1}" class="tab-li">News</li>
+		<li id="sports" ng-class="{ activate: tab===2}" ng-click="selectTab(2)" class="tab-li">Sports</li>
+		<li id="actualidad" ng-click="selectTab(3)" ng-class="{ activate: tab===3}" class="tab-li">Actualidad</li>
+		<li id="mundo" ng-click="selectTab(4)" ng-class="{ activate: tab===4}" class="tab-li">Mundo</li>
+	</ul>	
+</div>-->
 <div ng-repeat="noticia in noticias" class="noticias-items">
 	<div class="noticia-sgte">
 		<div class="imagen-noticia">
-			<img src="{{noticia.image}}" alt="">
+			<img src='{{noticia.image}} ' alt="">
 		</div>
 		<div class="resumen-noticia">
 			<div class="titulo-noticia">
@@ -11,7 +19,9 @@
 				<span>{{noticia.resumen}}</span>
 			</div>
 			<div class="btn-ver-mas">
-				<span>Ver mas ></span>
+				<a href="/#noticias/{{noticia.id}}">
+					<span>Ver mas ></span>
+				</a>
 			</div>
 		</div>
 	</div>

@@ -8,13 +8,6 @@
 			};
 		})
 
-		.directive('tabsNoticia', function () {
-			return {
-				restrict: 'A',
-				templateUrl: 'static/js/partials/tabs-noticia.html'
-			};
-		})
-
 		.directive('noticiaComments', function () {
 			return {
 				restrict: 'A',

@@ -2,7 +2,8 @@
 	var app = angular.module('noticiero', [
 		'ngRoute',
 		'noticiero.controllers',
-		'noticiero.directives'
+		'noticiero.directives',
+		'noticiero.services'
 	]);
 
 	app.config(['$routeProvider', function($routeProvider){

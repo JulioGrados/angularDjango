@@ -1,34 +1,57 @@
 (function(){
+
+	var a = 1;
+
 	angular.module('noticiero.controllers', [])
-		.controller('NoticiasController', 
-			['$scope', '$http', function($scope, $http){
-				$scope.noticias = [];
-				$http.get('http://localhost:8000/api/noticias/')
-					.success(function (data){
+		.controller('NoticiasController',
+			['$scope', 'noticieroService', function($scope, noticieroService){
+
+				console.log("entro");
+				
+				if (a == 1) {
+					console.log(a);
+					noticieroService.all().then(function (data){
 						$scope.noticias = data;
 					});
+				} else if (a == 2) {
+					console.log(a);
+					noticieroService.byType('sports').then(function (data){
+						$scope.noticias = data;
+					});
+				} else if (a == 3) {
+					console.log(a);
+					noticieroService.byType('actualidad').then(function (data){
+						$scope.noticias = data;
+					});
+				} else if (a == 4) {
+					console.log(a);
+					noticieroService.byType('mundo').then(function (data){
+						$scope.noticias = data;
+					});
+				}
+				
 		}])
-		.controller('NoticieroController', ['$scope', '$http', function($scope, $http){
-			$scope.tab = 1;
 
-			$scope.noticia = {
-				id: 001,
-				img: 'images.jpg',
-				titulo: 'Curso de programación de Html y Css',
-				autor: 'Julio Grados',
-				descripcion: 'Lorem ipsum dolor sit amet,' +
-				'consectetur adipisicing elit.' + 
-				'Neque totam voluptates expedita dolores.' +
-				'Aperiam, aliquid! Eveniet fuga nam neque praesentium magnam,' +
-				'accusantium nulla, ducimus,' + 
-				'corrupti veritatis quibusdam vel quas delectus.',
-				date: Date.now('2015-04-09T03:58:48.696836Z'),
-			};
+		.controller('NoticieroController', 
+			['$scope', '$routeParams', 'noticieroService', function($scope, $routeParams, noticieroService){
+				var id = $routeParams.id;
+				$scope.noticia = {};
 
-			$scope.selectTab = function (tab) {
-				console.log($scope.noticia);
-		      	$scope.tab = tab;
-		    };
-		}]);
+				noticieroService.byId(id)
+					.then(function (data) {
+						$scope.noticia = data;
+					});
+		}])
+
+		.controller('TabsController', 
+			['$scope', 'noticieroService', '$controller', function($scope, noticieroService, $controller){
+				this.tab = 1;
+
+				this.selectTab = function (tab) {
+					this.tab = tab;
+					a = tab;
+					console.log(a);
+				};
+	    }]);
 
 })();
