@@ -1,40 +1,35 @@
 (function(){
-
-	var a = 1;
-
 	angular.module('noticiero.controllers', [])
 		.controller('NoticiasController',
-			['$scope', 'noticieroService', function($scope, noticieroService){
-
-				console.log("entro");
-				
-				if (a == 1) {
-					console.log(a);
+			['$rootScope', 'noticieroService', function($rootScope, noticieroService){
+				$rootScope.detail = false;
+				if ($rootScope.select == 1) {
 					noticieroService.all().then(function (data){
-						$scope.noticias = data;
+						$rootScope.noticias = data;
 					});
-				} else if (a == 2) {
-					console.log(a);
+				} else if ($rootScope.select == 2) {
 					noticieroService.byType('sports').then(function (data){
-						$scope.noticias = data;
+						$rootScope.noticias = data;
 					});
-				} else if (a == 3) {
-					console.log(a);
+				} else if ($rootScope.select == 3) {
 					noticieroService.byType('actualidad').then(function (data){
-						$scope.noticias = data;
+						$rootScope.noticias = data;
 					});
-				} else if (a == 4) {
-					console.log(a);
+				} else if ($rootScope.select == 4) {
 					noticieroService.byType('mundo').then(function (data){
-						$scope.noticias = data;
+						$rootScope.noticias = data;
 					});
 				}
+				noticieroService.all().then(function (data){
+					$rootScope.noticias = data;
+				});
 				
 		}])
 
 		.controller('NoticieroController', 
-			['$scope', '$routeParams', 'noticieroService', function($scope, $routeParams, noticieroService){
+			['$scope', '$rootScope', '$routeParams', 'noticieroService', function($scope, $rootScope,$routeParams, noticieroService){
 				var id = $routeParams.id;
+				$rootScope.detail = true;
 				$scope.noticia = {};
 
 				noticieroService.byId(id)
@@ -44,14 +39,31 @@
 		}])
 
 		.controller('TabsController', 
-			['$scope', 'noticieroService', '$controller', function($scope, noticieroService, $controller){
+			['$rootScope', 'noticieroService', function($rootScope, noticieroService){
+				$rootScope.select = 1;
 				this.tab = 1;
 
 				this.selectTab = function (tab) {
 					this.tab = tab;
-					a = tab;
-					console.log(a);
+					$rootScope.select = tab;
+					if (this.tab == 1 && $rootScope.detail === false) {
+						noticieroService.all().then(function (data){
+							$rootScope.noticias = data;
+						});
+					} else if (this.tab == 2 && $rootScope.detail === false) {
+						noticieroService.byType('sports').then(function (data){
+							$rootScope.noticias = data;
+						});
+					} else if (this.tab == 3 && $rootScope.detail === false) {
+						noticieroService.byType('actualidad').then(function (data){
+							$rootScope.noticias = data;
+						});
+					} else if (this.tab == 4 && $rootScope.detail === false) {
+						noticieroService.byType('mundo').then(function (data){
+							$rootScope.noticias = data;
+						});
+					}
+
 				};
 	    }]);
-
 })();
