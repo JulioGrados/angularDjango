@@ -8,7 +8,8 @@
 	app.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/', {
-				templateUrl: 'static/js/view/noticiasTodas.html'
+				templateUrl: 'static/js/view/noticiasTodas.html',
+				controller: 'NoticiasController'
 			})
 			.when('/noticias/:id', {
 				templateUrl: 'static/js/view/noticia.html',

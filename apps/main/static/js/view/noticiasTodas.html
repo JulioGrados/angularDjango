@@ -1,14 +1,14 @@
-<div class="noticias-items">
+<div ng-repeat="noticia in noticias" class="noticias-items">
 	<div class="noticia-sgte">
 		<div class="imagen-noticia">
-			<img src="public/img/descarga.jpg" alt="">
+			<img src="{{noticia.image}}" alt="">
 		</div>
 		<div class="resumen-noticia">
 			<div class="titulo-noticia">
-				<h2>Programadores web en tendencia</h2>
+				<h2>{{noticia.title}}</h2>
 			</div>
 			<div class="resumen">
-				<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga tempore, mollitia nisi sed fugiat impedit quas, cum at similique, dolor vel tenetur. Quasi illo facere dolorem distinctio eos, accusantium aut.</span>
+				<span>{{noticia.resumen}}</span>
 			</div>
 			<div class="btn-ver-mas">
 				<span>Ver mas ></span>

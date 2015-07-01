@@ -1,10 +1,17 @@
 (function(){
 	angular.module('noticiero.controllers', [])
+		.controller('NoticiasController', 
+			['$scope', '$http', function($scope, $http){
+				$scope.noticias = [];
+				$http.get('http://localhost:8000/api/noticias/')
+					.success(function (data){
+						$scope.noticias = data;
+					});
+		}])
+		.controller('NoticieroController', ['$scope', '$http', function($scope, $http){
+			$scope.tab = 1;
 
-		.controller('NoticieroController', function(){
-			this.tab = 1;
-
-			this.noticia = {
+			$scope.noticia = {
 				id: 001,
 				img: 'images.jpg',
 				titulo: 'Curso de programación de Html y Css',
@@ -18,10 +25,10 @@
 				date: Date.now('2015-04-09T03:58:48.696836Z'),
 			};
 
-			this.selectTab = function (tab) {
-				console.log(this.noticia);
-		      	this.tab = tab;
+			$scope.selectTab = function (tab) {
+				console.log($scope.noticia);
+		      	$scope.tab = tab;
 		    };
-		});
+		}]);
 
 })();
